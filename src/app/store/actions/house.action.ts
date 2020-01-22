@@ -31,13 +31,11 @@ export class GetOneHouse implements Action {
 export class GetOneHouseSuccess implements Action {
   public readonly type = EHouseActions.GetOneHouseSuccess;
   constructor(payload: House[]) {}
-
 }
 
 export class GetOneHouseFailure implements Action {
   public readonly type = EHouseActions.GetOneHouseFailure;
   constructor(payload: Error) {}
-
 }
 
 export type HouseActions =
