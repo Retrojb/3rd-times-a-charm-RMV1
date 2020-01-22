@@ -13,7 +13,10 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ HouseService, RoomService ],
+  providers: [
+    HouseService,
+    RoomService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
