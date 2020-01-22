@@ -1,6 +1,5 @@
 import { Action } from '@ngrx/store';
 import { House } from 'sdk-v1';
-import { type } from 'os';
 
 export enum EHouseActions {
   GetHouses = '[House] Get Houses',

@@ -8,7 +8,10 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-
+import { SocketDriver } from 'sdk-v1/sockets/socket.driver';
+import { HttpClientModule } from '@angular/common/http';
+import { SocketConnection } from 'sdk-v1/sockets/socket.connections';
+import { SDKModels, LoopBackAuth, ErrorHandler, InternalStorage } from 'sdk-v1';
 @NgModule({
   declarations: [
     AppComponent
@@ -34,7 +37,13 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     HouseService,
-    RoomService
+    RoomService,
+    SocketConnection,
+    SDKModels,
+    LoopBackAuth,
+    InternalStorage,
+    ErrorHandler,
+    SocketDriver
   ],
   bootstrap: [AppComponent]
 })
