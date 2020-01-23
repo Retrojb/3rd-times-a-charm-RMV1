@@ -26,6 +26,7 @@ export class GetRoomsFailure implements Action {
 
 export class GetOneRoom implements Action {
   public readonly type = ERoomActions.GetOneRoom;
+  constructor(public payload: Room) {}
 }
 
 export class GetOneRoomSuccess implements Action {
