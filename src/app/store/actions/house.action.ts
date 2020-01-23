@@ -26,6 +26,7 @@ export class GetHousesFailure implements Action {
 
 export class GetOneHouse implements Action {
   public readonly type = EHouseActions.GetOneHouse;
+  constructor( public payload: House) {}
 }
 
 export class GetOneHouseSuccess implements Action {
