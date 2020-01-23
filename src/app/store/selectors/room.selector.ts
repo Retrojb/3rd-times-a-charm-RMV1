@@ -1,6 +1,6 @@
-import { IAppState } from './../state/app.state';
 import { createSelector } from '@ngrx/store';
-import { IRoomState } from '../state/room.state';
+import { IAppState } from '../reducers/app.reducer';
+import { IRoomState } from '../reducers/room.reducer';
 
 const selectRooms = (state: IAppState) => state.room;
 

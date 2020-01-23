@@ -1,6 +1,7 @@
-import { IHouseState } from './../state/house.state';
-import { IAppState } from './../state/app.state';
+
 import { createSelector } from '@ngrx/store';
+import { IAppState } from '../reducers/app.reducer';
+import { IHouseState } from '../reducers/house.reducer';
 
 const selectHouses = (state: IAppState) => state.house;
 

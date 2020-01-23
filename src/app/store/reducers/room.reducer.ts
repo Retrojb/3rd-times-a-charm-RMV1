@@ -1,5 +1,4 @@
 import { ERoomActions } from './../actions/room.action';
-import { IRoomState } from './../state/room.state';
 import { Action, createReducer, on } from '@ngrx/store';
 import { Room } from 'sdk-v1';
 import { RoomActions } from '../actions/room.action';
@@ -7,8 +6,8 @@ import { RoomActions } from '../actions/room.action';
 
 export const roomFeatureKey = 'room';
 
-export interface State {
-  rooms: Array<Room>;
+export interface IRoomState {
+  rooms: Room[];
   selectedRoom: Room;
 }
 
@@ -17,19 +16,18 @@ export const initialRoomState: IRoomState = {
   selectedRoom: null
 };
 
-
 export const roomReducer = (
   state = initialRoomState,
   action: RoomActions
 ): IRoomState => {
   switch (action.type) {
-    case ERoomActions.GetRoomsSuccess {
+    case ERoomActions.GetRoomsSuccess: {
       return {
         ...state,
         rooms: action.payload
       };
     }
-    case ERoomActions.GetOneRoomSuccess {
+    case ERoomActions.GetOneRoomSuccess: {
       return {
         ...state,
         selectedRoom: action.payload
@@ -41,6 +39,6 @@ export const roomReducer = (
   }
 };
 
-export function reducer(state: State | undefined, action: RoomActions) {
+export function reducer(state: IRoomState | undefined, action: RoomActions) {
   return roomReducer(state, action);
 }

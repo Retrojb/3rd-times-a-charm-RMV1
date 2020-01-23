@@ -1,11 +1,12 @@
 import { GetRooms, ERoomActions, GetOneRoom, GetOneRoomSuccess } from './../actions/room.action';
-import { IAppState } from './../state/app.state';
 import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
 import { of } from 'rxjs';
 import { RoomService } from 'src/app/services';
+import { IAppState } from '../reducers/app.reducer';
+import { selectRoomList } from '../selectors/room.selector';
 
 @Injectable()
 export class RoomEffects {

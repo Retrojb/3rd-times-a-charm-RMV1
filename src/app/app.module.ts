@@ -1,3 +1,5 @@
+import { RoomApi } from './../../sdk-v1/services/custom/Room';
+import { HouseApi } from './../../sdk-v1/services/custom/House';
 import { appReducers } from './store/reducers/app.reducer';
 import { HouseEffects } from './store/effects/house.effect';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,17 +18,24 @@ import { SDKModels, LoopBackAuth, ErrorHandler, InternalStorage } from 'sdk-v1';
 import { EffectsModule } from '@ngrx/effects';
 import { RoomEffects } from './store/effects/room.effect';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { HouseComponent } from './containers/house/house.component';
 import { RoomsComponent } from './containers/rooms/rooms.component';
+import { RoomComponent } from './containers/room/room.component';
+import { HousesComponent } from './components/houses/houses.component';
+import { HouseListComponent } from './containers/houses/house-list/house-list.component';
+import { HouseComponent } from './containers/house/house.component';
 @NgModule({
   declarations: [
     AppComponent,
+    RoomsComponent,
+    HousesComponent,
     HouseComponent,
-    RoomsComponent
+    RoomComponent,
+    HouseListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([
       HouseEffects,
@@ -38,6 +47,8 @@ import { RoomsComponent } from './containers/rooms/rooms.component';
   providers: [
     HouseService,
     RoomService,
+    HouseApi,
+    RoomApi,
     SocketConnection,
     SDKModels,
     LoopBackAuth,
