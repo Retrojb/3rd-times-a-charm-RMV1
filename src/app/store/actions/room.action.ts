@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { Room } from 'sdk-v1';
 
-export enum EHouseActions {
+export enum ERoomActions {
   GetRooms = '[Room] Get rooms',
   GetRoomsSuccess = '[Room] Successfully got rooms',
   GetRoomsFailure = '[Room] Failed to get rooms',
@@ -11,30 +11,30 @@ export enum EHouseActions {
 }
 
 export class GetRooms implements Action {
-  public readonly type = EHouseActions.GetRooms;
+  public readonly type = ERoomActions.GetRooms;
 }
 
 export class GetRoomsSuccess implements Action {
-  public readonly type = EHouseActions.GetRoomsSuccess;
+  public readonly type = ERoomActions.GetRoomsSuccess;
   constructor(payload: Room[]) {}
 }
 
 export class GetRoomsFailure implements Action {
-  public readonly type = EHouseActions.GetRoomsFailure;
+  public readonly type = ERoomActions.GetRoomsFailure;
   constructor(payload: Error) {}
 }
 
 export class GetOneRoom implements Action {
-  public readonly type = EHouseActions.GetOneRoom;
+  public readonly type = ERoomActions.GetOneRoom;
 }
 
 export class GetOneRoomSuccess implements Action {
-  public readonly type = EHouseActions.GetOneRoomSuccess;
+  public readonly type = ERoomActions.GetOneRoomSuccess;
   constructor(payload: Room[]) {}
 }
 
 export class GetOneRoomFailure implements Action {
-  public readonly type = EHouseActions.GetOneRoomFailure;
+  public readonly type = ERoomActions.GetOneRoomFailure;
   constructor(payload: Error) {}
 }
 

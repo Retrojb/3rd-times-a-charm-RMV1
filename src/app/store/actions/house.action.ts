@@ -16,12 +16,12 @@ export class GetHouses implements Action {
 
 export class GetHousesSuccess implements Action {
   public readonly type = EHouseActions.GetHousesSuccess;
-  constructor(payload: House[]) {}
+  constructor(public payload: House[]) {}
 }
 
 export class GetHousesFailure implements Action {
   public readonly type = EHouseActions.GetHousesFailure;
-  constructor(payload: Error) {}
+  constructor(public payload: Error) {}
 }
 
 export class GetOneHouse implements Action {
@@ -30,12 +30,12 @@ export class GetOneHouse implements Action {
 
 export class GetOneHouseSuccess implements Action {
   public readonly type = EHouseActions.GetOneHouseSuccess;
-  constructor(payload: House[]) {}
+  constructor( public payload: House) {}
 }
 
 export class GetOneHouseFailure implements Action {
   public readonly type = EHouseActions.GetOneHouseFailure;
-  constructor(payload: Error) {}
+  constructor(public payload: Error) {}
 }
 
 export type HouseActions =
