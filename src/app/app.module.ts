@@ -42,7 +42,7 @@ import { HouseComponent } from './containers/house/house.component';
       RoomEffects
     ]),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [
     HouseService,
@@ -56,6 +56,8 @@ import { HouseComponent } from './containers/house/house.component';
     ErrorHandler,
     SocketDriver
   ],
+  exports: [],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

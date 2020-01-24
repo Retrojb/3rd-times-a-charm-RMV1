@@ -1,2 +1,8 @@
 <p>house-list works!</p>
-<app-house></app-house>
+<button routerLink="/">Go Back</button>
+<div >
+  <h2>INSIDE APP-HOUSE</h2>
+      <app-houses [houses]='houses$ | async' (houseSelected)="navToHouse($event)">
+      </app-houses>
+  </div>
+  <h4>Bueler? Bueler?!?</h4>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { House } from 'sdk-v1/models/House';
 import { Store, select } from '@ngrx/store';
@@ -13,24 +13,28 @@ import { selectHouseList } from 'src/app/store/selectors/house.selector';
 })
 export class HousesComponent implements OnInit {
 
-  houses: Observable<House[]>;
+  @Input() houses: House;
+  @Output() houseSelected: EventEmitter<House> = new EventEmitter();
+
   constructor(private store: Store<IAppState>,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
     console.log('HOUSE COMPONENT ONINIT');
-    console.log('houses component data', this.houses)
+    console.log('houses component data', this.houses);
     this.store.dispatch(new GetHouses());
-    this.houses = this.store.pipe(select(selectHouseList));
     console.log('HOUSE COMPONENT ONINIT FINISHED');
   }
 
-  navToSelectedHouse() {
+  navToSelectedHouse(id) {
     this.route.data.subscribe(routerDate => {
       const data = routerDate.data;
       if (data) {
         this.houses = data.house;
       }
     });
+    this.houseSelected.emit(id);
 }
+
+
 }

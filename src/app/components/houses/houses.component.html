@@ -1,11 +1,22 @@
 <p>houses works!</p>
+<button routerLink="/houses">Go To Houses List</button>
 <div>
-  <ul *ngFor="let house of houses$">
-    <li>
-      <a>
-        {{ house.houseName}}
-      </a>
-    </li>
+  <table>
+    <tbody>
+      <tr *ngFor="let house of houses"
+      (click)="navToSelectedHouse(house.id)">
+      <td>{{ house.houseName}}<button>Go</button></td>
+      <td>{{ house.street }}</td>
+      <td>{{ house.city }}</td>
+      <td>{{ house.state }}</td>
+      <td>{{ house.zipcode }}</td>
+      <td>{{ house.type }}</td>
 
-  </ul>
+        <td>
+          {{house.rooms}}
+        </td>
+
+    </tr>
+  </tbody>
+</table>
 </div>
